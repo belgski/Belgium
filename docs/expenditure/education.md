@@ -6,7 +6,7 @@ is proportionally in line with the rest of the European union:
 
 ![](../assets/education_eu.png)
 
-We spend a little bit more on secondary education, significantly more on "Other education" and proportionally less on Primary/Tertiary education.
+We spend significantly more on "Other education".
 
 ## Spending by type of education 
 

@@ -10,23 +10,23 @@ The dependency factor is defined as the number of people over the age of 65 divi
 
 It is the dependency factor that tells us how many people we will be able to tax to fuel this horde of old people.
 
-A naive model would be to assume that both the expense per pensioner and revenue per worker scale similarly. In that case, you would need taxation to grow proportionally to the dependency factor, so +- 45% by 2060. The European commission suggests three main components that will be driving the pension costs down:
+A naive model would be to assume that both the expense per pensioner and revenue per worker scale similarly. 
+
+![](../assets/future_pension_costs.png)
+
+In that case, you would need taxation to grow proportionally to the dependency factor, so +- 45% by 2060. We can see that it is hardly a uniquely Belgian problem, but there are a number of factors that suggests it will affect us disproportionally.
+
+The European commission suggests three main components that will be driving the pension costs down.
 
 
 ### The benefit ratio
 
-The first of which is the benefit ratio - the ratio of the average pension to the average wage. In other words - old people will get smaller pensions.
+The first of which is the benefit ratio - the ratio of the average pension to the average wage. In other words - old people will get smaller pensions. This is the main lever that countries change to surpress growing pension expenditure. Current forecasts suggests that this will decrease less in Belgium compared to other countries.
 
 ### The coverage ratio
 
-Old people will work for longer, thereby partially negating the need to give them pensions.
+Old people will work for longer, thereby partially negating the need to give them pensions. Belgians exit the labour market earlier than the typical european country, which will have to change.
 
 ### The labour market effect
 
-We will be able to enable more people to join the labour market. 
-
-## A word of caution
-
-While it looks bleak, these models need to be taken with a grain of salt. For one, it is very difficult to predict how the GDP will scale with respect to wages. A graying population will induce further changes in the economy, that will be harder to predict. 
-
-Whatever happens, I would start saving up.
+We might be able to enable more people to join the labour market. There is a significant fraction of people that do not contribute to the labour market. Enabling those people to join will lessen the load on our workforce.

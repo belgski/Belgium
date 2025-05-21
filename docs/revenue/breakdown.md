@@ -6,7 +6,7 @@ This can be compard with the average breakdown of an European country.
 
 ![](../assets/tax_breakdown_average.png)
 
-We see that in Belgium, the fraction of revenue coming from social security contributions is 5% higher, while less revenue is coming from the taxation of goods and services.
+We see that in Belgium, the fraction of revenue coming from income taxation is 5% higher, while less revenue is coming from the taxation of goods and services. The difference is not - as I have sometimes read online - in our social security.
 
 ## Comparing taxation revenue to GDP
 You may have seen plots like the one below, where taxation revenue is compared to the GDP. Belgium is marked in orange indicator. 

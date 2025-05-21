@@ -3,11 +3,10 @@ We are governed by 6 different governments, and they are often accused of eating
 
 ![](../assets/public_services_belgium.png)
 
-Compared to the average European country
+Compared to the European average 
 
 ![](../assets/public_services_eu.png)
 
-We have slightly more going to public debt, spend a proportionally larger amount on research, but proportionally way less on "Executive and legislative organs, financial and fiscal affairs, external affairs" (which I had to relabel to "Greedy government" on the plot, as to make it fit on the figure).
 
 ## Greedy government
 

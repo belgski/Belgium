@@ -2,7 +2,7 @@ The typical country spends the majority of its social protection budget taking c
 
 ![](../assets/social_protection_belgium.png)
 
-While the average country spends its social protection budget the following way:
+While the European average is allocated in the following way:
 
 ![](../assets/social_protection_eu.png)
 
