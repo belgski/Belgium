@@ -1,0 +1,1 @@
+[source](https://data-explorer.oecd.org/vis?pg=140&snb=164&tm=taxation%20revenue&hc[Topic]=&df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_REF_GLOBAL%40DF_REFSERIES_GLOBAL&df[ag]=OECD.CTP.TPS&df[vs]=1.1&dq=.B1GQ_V..A&lom=LASTNPERIODS&lo=10&to[TIME_PERIOD]=false&vw=tb)

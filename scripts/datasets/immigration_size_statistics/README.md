@@ -1,0 +1,1 @@
+[source](https://ec.europa.eu/eurostat/databrowser/view/lfst_rimgpnga/default/table?lang=en&category=mi.mii.mii_lfst)

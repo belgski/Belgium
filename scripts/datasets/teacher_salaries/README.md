@@ -1,0 +1,1 @@
+[source](https://data-explorer.oecd.org/vis?fs[0]=Topic%2C1%7CEducation%20and%20skills%23EDU%23%7CTeachers%23EDU_TEA%23&pg=20&fc=Topic&bp=true&snb=26&df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_EAG_SAL_TREND%40DF_TCH_STA&df[ag]=OECD.EDU.IMEP&lc=en&dq=..XDC..ISCED11_02%2BISCED11_34%2BISCED11_24%2BISCED11_1....TYP_EXP..V&lom=LASTNPERIODS&lo=5&to[TIME_PERIOD]=false&vw=tb)

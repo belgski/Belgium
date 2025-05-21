@@ -1,0 +1,1 @@
+[source](https://data-explorer.oecd.org/vis?df[ds]=DisseminateFinalDMZ&df[id]=DSD_TAX_WAGES_COMP%40DF_TW_COMP&df[ag]=OECD.CTP.TPS&dq=.GEBT%2BNIAT%2BGLCBT..C_C2%2BS_C0...A&lom=LASTNPERIODS&lo=10&to[TIME_PERIOD]=false&vw=tb)
