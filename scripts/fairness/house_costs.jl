@@ -26,14 +26,16 @@ let
 
     # given the net_household_income we can calculate the amount of money that can sensibly be given to a bank; capped at 1/3
     # we will take out a 25 year loan
-    bank_revenue = 20 * net_household_income/3
-    # but with a 3.5% rente
-    house_budget = bank_revenue/(1.035)
 
+    yearly_rent = 3
+    monthly_rent = yearly_rent/12 / 100
+    num_months = 20*12
+    house_budget = (net_household_income/(3*12)) * (1-(1+monthly_rent)^(-num_months))/monthly_rent
+    
     open(joinpath(FIGURE_DIR,"housing_budget_text.txt"),"w") do f
         write(f,"The median household of a couple with two children has a yearly net income of $(sprintf1("%0.1f",net_household_income)) Euro. 
         There is a rough rule of thumb that you should spend at most one third of your income on housing. 
-        If we assume an interest rate of 3.5% and we take out of a loan for 20 years, then the maximum reasonable budget is $(sprintf1("%0.1f",house_budget)) Euro.")
+        If we assume an interest rate of 3% and we take out of a loan for 20 years, then the maximum reasonable budget is $(sprintf1("%0.1f",house_budget)) Euro.")
     end
 
     for (housetype,descr) in (("closed","Huizen met 2 of 3 gevels (gesloten + halfopen bebouwing)"),("open","Huizen met 4 of meer gevels (open bebouwing)"))

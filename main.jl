@@ -71,9 +71,6 @@ open(joinpath(FIGURE_DIR,"compared_countries.txt"),"w") do f
     write(f,".")
 end
 
-include("scripts/expenditure/government.jl")
-
-#=
 include("scripts/revenue/tax_breakdown.jl")
 include("scripts/revenue/taxation_gdp_relationship.jl")
 include("scripts/revenue/vat.jl")
@@ -95,5 +92,3 @@ include("scripts/fairness/wage_distribution.jl")
 
 include("scripts/claims/immigration.jl")
 include("scripts/claims/pensions.jl")
-=#
-include("scripts/revenue/tax_breakdown.jl")
