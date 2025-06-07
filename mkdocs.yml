@@ -1,4 +1,5 @@
 site_name: Belgium
+repo_url: https://github.com/belgski/Belgium
 theme:
   name: material
   features:

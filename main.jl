@@ -1,4 +1,4 @@
-using HTTP, CSV ,DataFrames, Query, XML, Plots, Downloads, PythonCall, Countries, Formatting, GLM, PrettyTables, Statistics
+using HTTP, CSV ,DataFrames, Query, XML, Plots, Downloads, PythonCall, Countries, Formatting, GLM, PrettyTables, Statistics, XLSX, ZipFile
 using GeoInterface,Shapefile,ArchGDAL
 using Plots.Measures
 
@@ -20,39 +20,15 @@ const TARGET_NAME = "Belgium"
 const COUNTRIES_DF = DataFrame(all_countries())
 
 
-const TARGET = "BEL"
-
-
-
-function alpha2_to_eu(alpha2)
-    # you will not believe it, but the european union does not use the official iso-2 codes
-    if alpha2 == "GR"
-        return "EL"
-    elseif alpha2 == "GB"
-        return "UK"
-    else
-        return alpha2
-    end
-end
-
-# bit of a misnomer, maps iso_3 (used by oecd) => country name
-const EUROPEAN_AREA_CODE_NAME = @from i in COUNTRIES_DF begin
-    @where i.name in EUROPEAN_AREA_NAMES
-    @select i.alpha3 => i.name
-    @collect Dict
-end
-
+# you will not believe it, but the european union does not use the official iso-2 codes
+const ALPHA2_EXCEPTIONS = Dict("GR"=>"EL","GB"=>"UK")
 # maps iso_2 (used by eurostat) => country name
 const EUROPEAN_AREA_ISO_NAME = @from i in COUNTRIES_DF begin
     @where i.name in EUROPEAN_AREA_NAMES
-    @select alpha2_to_eu(i.alpha2) => i.name
+    @select get(ALPHA2_EXCEPTIONS,i.alpha2,i.alpha2) => i.name
     @collect Dict
 end
-
-# unsorted
-const EUROPEAN_AREA_CODES = collect(keys(EUROPEAN_AREA_CODE_NAME))
 const EUROPEAN_AREA_ISOS = collect(keys(EUROPEAN_AREA_ISO_NAME))
-
 const TARGET_ISO = findfirst(==(TARGET_NAME),EUROPEAN_AREA_ISO_NAME)
 
 
@@ -71,6 +47,8 @@ open(joinpath(FIGURE_DIR,"compared_countries.txt"),"w") do f
     write(f,".")
 end
 
+include("scripts/nocat/well_being.jl")
+
 include("scripts/revenue/tax_breakdown.jl")
 include("scripts/revenue/taxation_gdp_relationship.jl")
 include("scripts/revenue/vat.jl")
@@ -84,11 +62,10 @@ include("scripts/expenditure/government.jl")
 include("scripts/expenditure/old_age.jl")
 include("scripts/expenditure/unemployment.jl")
 
-include("scripts/nocat/well_being.jl")
-
 include("scripts/fairness/house_costs.jl")
 include("scripts/fairness/houses.jl")
 include("scripts/fairness/wage_distribution.jl")
 
 include("scripts/claims/immigration.jl")
 include("scripts/claims/pensions.jl")
+include("scripts/claims/wealth_inequality_by_age.jl")

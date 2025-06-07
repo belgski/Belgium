@@ -10,7 +10,7 @@ let
         @select {geo = EUROPEAN_AREA_ISO_NAME[i.geo], rate = getfield(i,Symbol("$TIME_PERIOD"))}
         @collect DataFrame
     end
-
+    df = df[(!).(isnan.(df.rate)),:]
     sp = sortperm(df.rate)
     ref_areas = df.geo[sp]
     palette = Plots.palette(:tab10);
@@ -28,7 +28,7 @@ let
         @select {geo = EUROPEAN_AREA_ISO_NAME[i.geo], rate = getfield(i,Symbol("$TIME_PERIOD"))}
         @collect DataFrame
     end
-
+    df = df[(!).(isnan.(df.rate)),:]
     sp = sortperm(df.rate)
     ref_areas = df.geo[sp]
     palette = Plots.palette(:tab10);

@@ -45,6 +45,7 @@ let
 
     unempl_pop_df = @from i in df begin
         @where i.MEASURE.name == "Persons outside the labour force"# == unempl_pop_code
+        @where i.AGE.name == "15 years or over"
         @select {REF_AREA = i.REF_AREA.name,UNEMPL_POP = i.OBS_VALUE}
         @collect DataFrame
     end

@@ -1,0 +1,1 @@
+The dataset is not publicly accessible, but the summary is. I am basing myself on the [2023 summary](https://www.ecb.europa.eu/stats/ecb_surveys/hfcs/html/index.en.html)
