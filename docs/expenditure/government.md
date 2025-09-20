@@ -28,3 +28,13 @@ We have quite a bit of debt, sometimes described as "crippling" - but is it so? 
 Because of our above average debt, we do have to spend a slightly more than most other countries.
 
 ![](../assets/debt_spending.png)
+
+I want to mention that debt is not an inherently bad thing. We are not balancing the checkbook of a regular person - a country is a different beast entirely. For example, it may be beneficial to go into debt if it sufficiently boosts your future GDP. Too much debt can become a problem when you have to pay larger and larger fractions of your taxation revenue to paying of interest, at the cost of other investments. Historically, this fraction has been trending down :
+
+![](../assets/debt_spending_time.png)
+
+A lot of debt will also make it more expensive for the government to lend new capital. A new loan is seen as more risky, and lenders therefore demand a higher return on investment. A standard measure for this rate is the yeild on a 10-year government bond.
+
+![](../assets/long_term_yield.png)
+
+We see that Belgium, despite the quite impressive amount of debt, is still seen as a relatively safe investment. That is not to say that our debt shouldn't ideally come down.

@@ -16,7 +16,7 @@ The ratio of the actual budget with respect to the estimated linear-model budget
 
 ![](../assets/old_age.png)
 
-We are fairly average (unlike the lonely outlier, everyone's favourite gas station, Luxembourg). If a lot of money is going towards taking care of the elderly, it appears to be because we have a lot of old people, not because we spend disproportionally more.
+We are fairly average (unlike the lonely outlier, everyone's favourite gas station, Luxembourg). If a lot of money is going towards taking care of the elderly, it appears to be because we have a lot of old people, not because we spend disproportionally more. According to the breakdown plot, we aren't even spending a particularly remarkable amount on pensions at the moment.
 
 ## Unemployment
 
@@ -54,4 +54,4 @@ If the predicted value deviates significantly from the actual budget, then we ca
 
 ![](../assets/sick_disabled_budget_ratio.png)
 
-It doesn't capture the entire story, but it appears as if we are spending more than expected, given our population numbers and amount of people outside the workforce.
+It doesn't capture the entire story, but it appears as if we are spending far more than expected, given our population numbers and amount of people outside the workforce.
