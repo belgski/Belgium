@@ -1,4 +1,5 @@
-using HTTP, CSV ,DataFrames, Query, XML, Plots, Downloads, PythonCall, Countries, Formatting, GLM, PrettyTables, Statistics, XLSX, ZipFile
+using HTTP, CSV ,DataFrames, XML, Plots, Downloads, PythonCall, Countries, Formatting, PrettyTables, XLSX, ZipFile, CodecXz, RData, HTMLTables
+using Query, GLM, Statistics, DataEnvelopmentAnalysis
 using GeoInterface,Shapefile,ArchGDAL
 using Plots.Measures
 
@@ -30,7 +31,12 @@ const EUROPEAN_AREA_ISO_NAME = @from i in COUNTRIES_DF begin
 end
 const EUROPEAN_AREA_ISOS = collect(keys(EUROPEAN_AREA_ISO_NAME))
 const TARGET_ISO = findfirst(==(TARGET_NAME),EUROPEAN_AREA_ISO_NAME)
-
+const EUROPEAN_AREA_ISO3_NAME = @from i in COUNTRIES_DF begin
+    @where i.name in EUROPEAN_AREA_NAMES
+    @select i.alpha3 => i.name
+    @collect Dict
+end
+const EUROPEAN_AREA_ISO3S = collect(keys(EUROPEAN_AREA_ISO3_NAME))
 
 const datasets = Dict{String,Any}()
 for f in readdir(joinpath(ROOT_DIR,"datasets"))
@@ -65,7 +71,10 @@ include("scripts/expenditure/unemployment.jl")
 include("scripts/fairness/house_costs.jl")
 include("scripts/fairness/houses.jl")
 include("scripts/fairness/wage_distribution.jl")
+include("scripts/fairness/efficiency.jl")
+include("scripts/fairness/pensions.jl")
 
 include("scripts/claims/immigration.jl")
 include("scripts/claims/pensions.jl")
 include("scripts/claims/wealth_inequality_by_age.jl")
+include("scripts/claims/cost_of_living.jl")

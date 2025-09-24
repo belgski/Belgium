@@ -33,7 +33,7 @@ I want to mention that debt is not an inherently bad thing. We are not balancing
 
 ![](../assets/debt_spending_time.png)
 
-A lot of debt will also make it more expensive for the government to lend new capital. A new loan is seen as more risky, and lenders therefore demand a higher return on investment. A standard measure for this rate is the yeild on a 10-year government bond.
+A lot of debt will also make it more expensive for the government to lend new capital. A new loan is seen as more risky, and lenders therefore demand a higher return on investment. A standard measure for this rate is the yield on a 10-year government bond.
 
 ![](../assets/long_term_yield.png)
 

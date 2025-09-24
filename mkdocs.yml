@@ -21,6 +21,8 @@ nav:
   - Fairness:
     - Wage distribution: fairness/wage_distribution.md
     - Buying a house: fairness/house.md
+    - Funding efficiency: fairness/efficiency.md
+    - Pension systems: fairness/pensions.md
   - Populist claims:
     - Migration: claims/migration.md
     - Pension crisis: claims/pensions.md

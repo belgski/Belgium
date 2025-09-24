@@ -2,8 +2,18 @@ Perhaps one of the most important questions we could ask is - how efficiently do
 
 ## Education
 
-I want to focus on 
+I will make use of the PISA scores that students from different countries achieved on the three tested subjects : mathematics, reading and science. We've [already seen](../expenditure/education.md#spending-by-type-of-education) that the cost per student for pre-primary-education has to be estimated, despite being a sizeable fraction of the budget. 
+
+That caveat aside, we can calculate the per-student investment over 9 years of pre-primary + primary school and 4 years of secondary education (until the time of testing). This budget will then be compared to our pisa rankings, and should estimate the efficiency of our education. 
+
+I normalize the per-student spending by the median gross wage before taxes, as the main expenditure will be teacher salaries. That is not entirely fair as there is also building maintenance, learning material costs, ... but I believe it is sufficient to get the point accross. If we have a wasteful education system, it should already be apparant form this analysis.
+
+![](../assets/education_efficiency.png)
+
+We find a relatively well functioning education system! We can always do better by taking inspiration from Finland, Ireland or even our neighbours to the north.
+
+## Healthcare
 
 ## Infrastructure
 
-## Health
+## ...

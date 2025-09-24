@@ -10,7 +10,9 @@ We spend significantly more on "Other education".
 
 ## Spending by type of education 
 
-We can once again estimate a sensible budget by looking at student enrollments and comparing with different European countries. For both primary education : 
+We can once again estimate a sensible budget by looking at student enrollments and comparing with different European countries. There is a slight complication, in that some datapoints on the number of pre-primary students are missing. I will estimate that number by assuming the ratio of primary to pre-primary students to be fairly constant.
+
+For pre primary + primary education : 
 
 ![](../assets/pre_primary_education.png)
 
