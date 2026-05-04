@@ -5,10 +5,10 @@ let
     # export = 2
 
     df = @from i in be_trade_dataset begin
-        @where !isnan(getfield(i,Symbol("$TIME_PERIOD")))
+        @where !isnan(Float64(getfield(i,Symbol("$TIME_PERIOD"))))
         @where i.product != "TOTAL"
         @where i.flow == 1
-        @select {CN = i.product, AMOUNT =getfield(i,Symbol("$TIME_PERIOD"))}
+        @select {CN = i.product, AMOUNT = Float64(getfield(i,Symbol("$TIME_PERIOD")))}
         @collect DataFrame
     end
 
@@ -98,7 +98,7 @@ let
     colors = [a == TARGET_ISO ? palette[2] : palette[1] for a in ref_areas]
     bar(ref_area_labels, out_total.REV[sp], legend=false, yaxis="Expected VAT revenue (Billion euro)", xaxis="Country policy", color=colors,  xrotation=35, xticks = (1:length(ref_area_labels),ref_area_labels),bottommargin=5mm)
 
-    df = datasets["government_taxation_revenue"]
+    df = datasets["global_tax_revenue"]
     df_total_vat = @from i in df begin
         @where i.TIME_PERIOD==TIME_PERIOD
         @where i.UNIT_MEASURE.name == "National currency"
@@ -107,6 +107,7 @@ let
         @select i
         @collect DataFrame
     end
+
     df_total_vat[!,"OBS_VALUE"] .*=10 .^(df_total_vat[!,"UNIT_MULT"].-9)
     actual_belgain_vat_rev = df_total_vat.OBS_VALUE
 

@@ -5,7 +5,7 @@ let
         @where i.sector == "S13"
         @where i.na_item == "TR"
         @where i.geo in EUROPEAN_AREA_ISOS
-        @select {REF_AREA = EUROPEAN_AREA_ISO_NAME[i.geo],val = getproperty(i,Symbol("$TIME_PERIOD"))}
+        @select {REF_AREA = EUROPEAN_AREA_ISO_NAME[i.geo],val = Float64(getproperty(i,Symbol("$TIME_PERIOD")))}
         @collect DataFrame
     end
 

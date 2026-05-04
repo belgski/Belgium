@@ -2,7 +2,7 @@ Revenue due to taxation can be split up in a number of factors. There is money b
 
 ![](../assets/tax_breakdown_belgium.png) 
 
-This can be compard with the average breakdown of an European country.
+This can be compared to the average breakdown of a European country.
 
 ![](../assets/tax_breakdown_average.png)
 
@@ -13,7 +13,7 @@ You may have seen plots like the one below, where taxation revenue is compared t
 
 ![](../assets/taxation_per_gdp.png)
 
-We see Belgium on the high end, shouldered by Germany and Italy. Though our total taxation revenue does not appear remarkable by EU standards. That may surprise you - despite a lot of noise being made about excessive taxation in Belgium, in relative terms that simply isn't true. 
+We see Belgium on the high end, shouldered by Germany and Italy. Though our total taxation revenue does not appear remarkable by EU standards. That may surprise you - a lot of noise is being made about excessive taxation in Belgium, in relative terms that simply isn't true. 
 
 One might wonder if the comparison of taxation to GDP is really fair. GDP is defined as the total market value of all final goods and services produced within a country's borders. It is a metric for the size of an economy, and so it makes sense that public expenditure (and therefore the required taxation) should scale in some way with the GDP - but must it really be linear? To answer that, let's look at a log-log plot for taxation against GDP. In green we show the average taxation revenue over gdp relationship.
 

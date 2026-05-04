@@ -13,7 +13,6 @@ include("utils.jl")
 const ROOT_DIR = @__DIR__
 const FIGURE_DIR = joinpath(ROOT_DIR,"docs","assets")
 const TIME_PERIOD = 2022
-
 const EUROPEAN_AREA_NAMES = ["Slovenia", "Malta", "France", "Netherlands", "Estonia", "Slovakia", "Finland", "Austria", "Spain", "Italy", "Ireland", "Portugal", "Lithuania", "Cyprus", "Greece", "Germany", "Luxembourg", "Belgium", "Latvia"]
 const TARGET_NAME = "Belgium"
 
@@ -55,9 +54,9 @@ end
 
 include("scripts/nocat/well_being.jl")
 
+include("scripts/revenue/vat.jl")
 include("scripts/revenue/tax_breakdown.jl")
 include("scripts/revenue/taxation_gdp_relationship.jl")
-include("scripts/revenue/vat.jl")
 include("scripts/revenue/net_vs_gross.jl")
 
 include("scripts/expenditure/debt.jl")
@@ -71,8 +70,10 @@ include("scripts/expenditure/unemployment.jl")
 include("scripts/fairness/house_costs.jl")
 include("scripts/fairness/houses.jl")
 include("scripts/fairness/wage_distribution.jl")
-include("scripts/fairness/efficiency.jl")
+include("scripts/fairness/efficiency_education.jl")
+include("scripts/fairness/efficiency_healthcare.jl")
 include("scripts/fairness/pensions.jl")
+include("scripts/fairness/pension_comparison.jl")
 
 include("scripts/claims/immigration.jl")
 include("scripts/claims/pensions.jl")

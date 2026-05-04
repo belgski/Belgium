@@ -10,9 +10,15 @@ I normalize the per-student spending by the median gross wage before taxes, as t
 
 ![](../assets/education_efficiency.png)
 
-We find a relatively well functioning education system! We can always do better by taking inspiration from Finland, Ireland or even our neighbours to the north.
+We find a relatively well functioning education system! We can always do better by taking inspiration from Finland, Ireland or even our neighbours to the north. These conclusions remain unchanged when controlling for parental education levels, which is known to correlate well to the student's pisa score.
 
 ## Healthcare
+
+Healthcare is difficult to score. Commonly used metrics make use of life expectancy, but that is not entirely fair. When I was little, I underwent some kind of corrective eye surgery. While that must have cost the government some amount of money, I have a hard time imagining that that would influence life expectancy in a meaningful way. There are a ton of confounding factors such as worker conditions, diet, education, .... 
+
+Take the following analysis with a grain of salt. As production input I took healthcare spending relative to the total gdp. As output I will look at the number of healthy life years at 65 and hospital beds per capita.
+
+![](../assets/healthcare_efficiency.png)
 
 ## Infrastructure
 

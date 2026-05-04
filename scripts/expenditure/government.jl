@@ -87,7 +87,7 @@ let
         @where i.sector == "S13"
         @where i.na_item == "TR"
         @where get(EUROPEAN_AREA_ISO_NAME,i.geo,"") == TARGET_NAME
-        @select {OBS_VALUE = getproperty(i,Symbol("$TIME_PERIOD"))}
+        @select {OBS_VALUE = Float64(getproperty(i,Symbol("$TIME_PERIOD")))}
         @collect DataFrame
     end
 
@@ -95,4 +95,44 @@ let
 
     bar(["Projected savings","Deficit"], [projected_savings/10^9,gov_spending_df.OBS_VALUE[1]-df_totalrev.OBS_VALUE[1]],legend = false,yaxis = "Billion Euro")
     savefig(joinpath(FIGURE_DIR,"government_savings.png"))
+end
+
+
+let
+    df = datasets["wage_taxation"]
+    takehome_pay = @from i in df begin
+        @where i.REF_AREA.name in EUROPEAN_AREA_NAMES
+        @where i.MEASURE.name == "Gross earnings before taxes"
+        @where i.INCOME_PRINCIPAL.name =="100% of average wage"
+        @where i.UNIT_MEASURE.name =="National currency"
+        @where i.HOUSEHOLD_TYPE.name == "Single person, no children"
+        @where i.TIME_PERIOD == 2024
+        @select {REF_AREA = i.REF_AREA.name ,i.OBS_VALUE, i.UNIT_MULT, i.TIME_PERIOD}
+        @collect DataFrame
+    end
+    takehome_pay[!,"OBS_VALUE"] .*=10 .^(takehome_pay[!,"UNIT_MULT"])
+
+    # data is from 2025
+    (salary_pm, salary_parliament) = datasets["world_leader_salaries"]
+    salary_pm.Country = [uppercase(split(i,':')[2]) for i in salary_pm.Country]
+    salary_parliament.Country = [uppercase(split(i,':')[2]) for i in salary_parliament.Country]
+
+    df = @from i in salary_parliament begin
+        @where i.Country in EUROPEAN_AREA_ISOS
+        @select {REF_AREA = EUROPEAN_AREA_ISO_NAME[i.Country], Salary = parse(Float64,split(i[Symbol("Salary (local)")].value," ")[2])}
+        @collect DataFrame
+    end
+
+    df = @from i in df begin
+        @join j in takehome_pay on i.REF_AREA equals j.REF_AREA
+        @select {i.REF_AREA, Salary = i.Salary/j.OBS_VALUE}
+        @collect DataFrame
+    end
+
+    sp = sortperm(df.Salary)
+    ref_areas = df.REF_AREA[sp]
+    palette = Plots.palette(:tab10);
+    colors = [a == TARGET_NAME ? palette[2] : palette[1] for a in ref_areas]
+    bar(ref_areas, df.Salary[sp], legend=false, color=colors, yaxis="Parliament salary over average wage", xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm)
+    savefig(joinpath(FIGURE_DIR,"parliament_salary.png"))
 end

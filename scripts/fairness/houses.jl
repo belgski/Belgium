@@ -24,10 +24,10 @@ let
     burden = @from i in burden begin
         @where i.geo in EUROPEAN_AREA_ISOS
         @where i.deg_urb == "DEG1"
-        @select {i.geo, val = getfield(i,Symbol(TIME_PERIOD))}
+        @select {i.geo, val = Float64(getfield(i,Symbol(TIME_PERIOD)))}
         @collect DataFrame
     end
-    vals = [isa(v,Float64) ? v : parse(Float64,v) for v in burden.val]
+    vals = burden.val
     sp = sortperm(vals)
     ref_areas = burden.geo[sp]
     ref_area_labels = [EUROPEAN_AREA_ISO_NAME[c] for c in ref_areas]
@@ -40,10 +40,10 @@ let
     burden = @from i in burden begin
         @where i.geo in EUROPEAN_AREA_ISOS
         @where i.deg_urb == "DEG2"
-        @select {i.geo, val = getfield(i,Symbol(TIME_PERIOD))}
+        @select {i.geo, val = Float64(getfield(i,Symbol(TIME_PERIOD)))}
         @collect DataFrame
     end
-    vals = [isa(v,Float64) ? v : parse(Float64,v) for v in burden.val]
+    vals = burden.val
     sp = sortperm(vals)
     ref_areas = burden.geo[sp]
     ref_area_labels = [EUROPEAN_AREA_ISO_NAME[c] for c in ref_areas]

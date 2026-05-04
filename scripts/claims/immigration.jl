@@ -7,7 +7,7 @@ let
         @where i.age == "Y25-64"
         @where i.citizen == "NEU27_2020_FOR"
         @where i.geo in EUROPEAN_AREA_ISOS
-        @select {geo = EUROPEAN_AREA_ISO_NAME[i.geo], rate = getfield(i,Symbol("$TIME_PERIOD"))}
+        @select {geo = EUROPEAN_AREA_ISO_NAME[i.geo], rate = Float64(getfield(i,Symbol("$TIME_PERIOD")))}
         @collect DataFrame
     end
     df = df[(!).(isnan.(df.rate)),:]
@@ -25,7 +25,7 @@ let
         @where i.age == "Y15-64"
         @where i.citizen == "NEU27_2020_FOR"
         @where i.geo in EUROPEAN_AREA_ISOS
-        @select {geo = EUROPEAN_AREA_ISO_NAME[i.geo], rate = getfield(i,Symbol("$TIME_PERIOD"))}
+        @select {geo = EUROPEAN_AREA_ISO_NAME[i.geo], rate = Float64(getfield(i,Symbol("$TIME_PERIOD")))}
         @collect DataFrame
     end
     df = df[(!).(isnan.(df.rate)),:]

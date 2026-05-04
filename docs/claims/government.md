@@ -10,3 +10,9 @@ To put it into perspective - this is how it compares to the deficit
 ![](../assets/government_savings.png)
 
 A significant saving to be sure, not very realistic with all complications in Belgium, but not enough to get us to a net surplus. 
+
+## Parliament wages
+
+The website [politicalsalaries.com](http://politicalsalaries.com) provides data on the renumeration of members of parliament, which we can compare to the average bruto wage. While this won't include a bunch of tax advantaged benefits, the plot suggests that these wages are far from excessive.
+
+![](../assets/parliament_salary.png)

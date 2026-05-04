@@ -14,7 +14,7 @@ A naive model would be to assume that both the expense per pensioner and revenue
 
 ![](../assets/future_pension_costs.png)
 
-In that case, you would need taxation to grow proportionally to the dependency factor, so +- 45% by 2060. We can see that it is hardly a uniquely Belgian problem, but there are a number of factors that suggests it will affect us disproportionally.
+In that case, you would need pension contributions to grow proportionally to the dependency factor, so +- 45% by 2060. Pensions make up +-50% of social protection expenditure, so we would expect social security contributions to increase by 12.5% (not even mentioning the increased healthcare expenditure). We can see that it is hardly a uniquely Belgian problem, but there are a number of factors that suggests it will affect us disproportionally.
 
 The European commission suggests three main components that will be driving the pension costs down.
 

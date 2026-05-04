@@ -1,0 +1,1 @@
+FSMA publishes an official conversion factor, which cannot be programatically downloaded. I [found](https://www.pensionstat.be/file/cc73d96153bbd5448a56f19d925d05b1379c7f21/dcbe33f39c1fcfe2beecc3da658dc7b361c3801b/methodologie-pensionstat.be.pdf) 379,4184 to be the correct parameter for 2022.

@@ -8,4 +8,4 @@ A lower salary is mostly annoying when trying to relocate, buying imported goods
 
 We find Belgium to be expensive. When people talk about how our purchasing power is protected despite the high taxation, I don't know what metric they are looking at.
 
-Taxation on it's own is not necessarily a bad thing - in the next section we will look at where that money is going, and whether that is in line with other countries.
+Taxation on its own is not necessarily a bad thing - in the next section we will look at where that money is going, and whether that is in line with other countries.

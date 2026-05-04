@@ -26,7 +26,7 @@ let
     df_forecast = @from i in df_forecast begin
         @where i.geo in EUROPEAN_AREA_ISOS
         @where i.projection == "BSL"
-        @select {REF_AREA = EUROPEAN_AREA_ISO_NAME[i.geo], dependency_now = getfield(i,Symbol("$TIME_PERIOD")), dependency_future = getfield(i,Symbol("2060"))}
+        @select {REF_AREA = EUROPEAN_AREA_ISO_NAME[i.geo], dependency_now = Float64(getfield(i,Symbol("$TIME_PERIOD"))), dependency_future = Float64(getfield(i,Symbol("2060")))}
         @collect DataFrame
     end
 

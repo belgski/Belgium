@@ -1,0 +1,2 @@
+@assert TIME_PERIOD in 2022:2025
+379.4184

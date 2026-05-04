@@ -1,7 +1,7 @@
 
 # A story of belgian (in)competence
 
-Belgium has really high taxes for which we get a lot in return. The last time I visited the doctor I was asked to pay 3 euros and higher education is practically free. The state of our infrastructure (roads and public transportation) is above average and we are well protected against exploitation and poverty (though a lot of those protections are due to the european union). 
+Belgium has really high taxes for which we get a lot in return. The last time I visited the doctor I was asked to pay 3 euros, higher education is practically free, the state of our infrastructure (roads and public transportation) is above average and we are well protected against exploitation and poverty (though a lot of those protections are due to the european union). 
 
 When asked about life satisfaction - the typical Belgian is clear - we are happy.
 
@@ -9,7 +9,7 @@ When asked about life satisfaction - the typical Belgian is clear - we are happy
 
 Nevertheless I have this feeling of inefficiency, the feeling that whatever we are getting is not proportional to the amount that we give back to the state. There is also a creeping suspicion that the middle class is bearing the bulk of the load, while not necessarily being the "strongest shoulders" (looking at you rich people!). Right wing populist parties go even further, suggesting that we are nearing financial (and moral) bankruptcy due to unchecked migration.
 
-In this series of scripts I will try to understand whether this feeling is true. I will define taxation as all money the government takes from us and for which it promises great things in return - so it does include social security contributions.
+In this series of scripts I will try to understand whether this feeling is true. I will define taxation as all money the government takes from us and for which it promises great things in return - so it does include social security contributions. 
 
 ## General information
 
@@ -20,6 +20,8 @@ I made this document for me, because I found it extremely difficult to 'cut thro
 Most of my data is coming from the OECD. I will often make comparisons against "European countries", which are arbitrarily defined as the countries in the following list:
 
 --8<-- "assets/compared_countries.txt"
+
+Unless otherwise specified, I have used data from 2022. 
 
 ## Revenue
 
