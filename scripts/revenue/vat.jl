@@ -96,7 +96,8 @@ let
     ref_area_labels = [EUROPEAN_AREA_ISO_NAME[c] for c in ref_areas]
     palette = Plots.palette(:tab10);
     colors = [a == TARGET_ISO ? palette[2] : palette[1] for a in ref_areas]
-    bar(ref_area_labels, out_total.REV[sp], legend=false, yaxis="Expected VAT revenue (Billion euro)", xaxis="Country policy", color=colors,  xrotation=35, xticks = (1:length(ref_area_labels),ref_area_labels),bottommargin=5mm)
+    bar(ref_area_labels, out_total.REV[sp], legend=false, yaxis="Expected VAT revenue (Billion euro)", xaxis="Country policy", color=colors,  xrotation=35, xticks = (1:length(ref_area_labels),ref_area_labels),bottommargin=5mm,
+    title="VAT income "*get_source("BE_trade","vat"),titlefont=font(10,"Computer Modern"))
 
     df = datasets["global_tax_revenue"]
     df_total_vat = @from i in df begin

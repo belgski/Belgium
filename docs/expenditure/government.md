@@ -1,11 +1,8 @@
 
 We are governed by 6 different governments, and they are often accused of eating up an exorbitant amount of money. Let's see where our "general public services" money is going!
 
-![](../assets/public_services_belgium.png)
+![](../assets/public_services_spending.png)
 
-Compared to the European average 
-
-![](../assets/public_services_eu.png)
 
 
 ## Greedy government
@@ -38,3 +35,8 @@ A lot of debt will also make it more expensive for the government to lend new ca
 ![](../assets/long_term_yield.png)
 
 We see that Belgium, despite the quite impressive amount of debt, is still seen as a relatively safe investment. That is not to say that our debt shouldn't ideally come down.
+
+
+## Basic research
+
+!!!

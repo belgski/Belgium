@@ -22,7 +22,7 @@ let
     ref_area_labels = ref_areas
     palette = Plots.palette(:tab10);
     colors = [a == TARGET_NAME ? palette[2] : palette[1] for a in ref_areas]
-    bar(ref_area_labels, unempl_rate_df.UNEMPL_RATE[sp], legend=false, yaxis="Unemployment rate",color=colors,  xrotation=35, xticks = (1:length(ref_area_labels),ref_area_labels),bottommargin=5mm)
+    bar(ref_area_labels, unempl_rate_df.UNEMPL_RATE[sp], legend=false, title="Unemployment rate" * get_source("infra_annual_labour"), yaxis="Unemployment rate",color=colors,  xrotation=35, xticks = (1:length(ref_area_labels),ref_area_labels),bottommargin=5mm,titlefont=font(10,"Computer Modern"))
     savefig(joinpath(FIGURE_DIR,"unemployment_rate.png"))
 
     unempl_pop_df = @from i in df begin
@@ -69,7 +69,7 @@ let
     ref_areas = joined.REF_AREA[sp]
     palette = Plots.palette(:tab10);
     colors = [a == TARGET_NAME ? palette[2] : palette[1] for a in ref_areas]
-    bar(ref_areas, ratios[sp], legend=false, yaxis="Ratio",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm)
+    bar(ref_areas, ratios[sp], legend=false, title="Actual/estimated budget" * get_source("infra_annual_labour", "government_spending_by_function", "wage_taxation"), yaxis="Ratio",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm,titlefont=font(10,"Computer Modern"))
 
     savefig(joinpath(FIGURE_DIR,"unemployment_budget_ratio.png"))
 end

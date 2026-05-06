@@ -11,4 +11,4 @@ if !isfile(data_file)
 end
 
 #rename(DataFrame(CSV.File(data_file)),"geo\\TIME_PERIOD"=>"geo")
-DataFrame(CSV.File(data_file,stringtype=String))
+(data = DataFrame(CSV.File(data_file,stringtype=String)), source = "EUROSTAT:ds-045409")

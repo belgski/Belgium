@@ -56,28 +56,12 @@ let
     push!(pie_values,sum(df_totalrev.val[df_totalrev.REF_AREA.==TARGET_NAME])-sum(pie_values))
     push!(tax_names_shortened,"Non tax revenue")
 
-    sp = sortperm(pie_values)
-    pie_values = pie_values[sp]
+    sp = reverse(sortperm(pie_values))
+    belgium_pie = pie_values[sp]
     tax_names_shortened = tax_names_shortened[sp]
 
-    tot = sum(pie_values)
-    percentages = [sprintf1("%0.1f",x)*"%" for x in pie_values./tot*100]
-
-    θ = (cumsum(pie_values) - pie_values/2) .* 360/sum(pie_values)
-    scθ = sincosd.(θ)
-
-    using Plots.Measures
-    p = pie(tax_names_shortened,pie_values,right_margin=40mm,legend=(1,0.5))
-    for (i,(s, sci)) in enumerate(zip(percentages, scθ))
-        annotate!(sci[2]*0.6, sci[1]*0.6, Plots.text(s, 9, :black))
-    end
-    p
-
-
-    savefig(joinpath(FIGURE_DIR,"tax_breakdown_belgium.png"))
-
     let
-            averages = map(tax_codes) do code
+        averages = map(tax_codes) do code
             mean((@from i in df begin
                 @where i.STANDARD_REVENUE == code
 
@@ -85,25 +69,13 @@ let
                 @collect
             end))
         end
-        push!(averages,
-            mean(df_totalrev.val)-sum(averages))
+        push!(averages,mean(df_totalrev.val)-sum(averages))
         
-        averages = averages[sp]
+        eu_pie = averages[sp]
 
-
-        tot = sum(averages)
-
-        percentages = [sprintf1("%0.1f",x)*"%" for x in averages./tot*100]
-
-        θ = (cumsum(averages) - averages/2) .* 360/sum(averages)
-        scθ = sincosd.(θ)
-
-        p = pie(averages,legend=false)
-        for (s, sci) in zip(percentages, scθ)
-            annotate!(sci[2]*0.6, sci[1]*0.6, Plots.text(s, 9, :black))
-        end
-
-        savefig(joinpath(FIGURE_DIR,"tax_breakdown_average.png"))
+        spendingplot(tax_names_shortened,hcat(belgium_pie./sum(belgium_pie),eu_pie./sum(eu_pie)),["Belgium","Europe"], yaxis="Fraction of total", 
+        title="Tax breakdown" *  get_source("total_government_revenue", "government_taxation_revenue"),titlefont=font(10,"Computer Modern"), xrotation=35, bottommargin=10mm,c=reshape(Plots.palette(:tab10)[[2,1]],1,2),top_margin=10mm)
+        savefig(joinpath(FIGURE_DIR,"tax_breakdown.png"))
 
     end
 end

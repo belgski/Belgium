@@ -10,4 +10,4 @@ if !isfile(structure_file)
     Downloads.download("https://sdmx.oecd.org/public/rest/dataflow/OECD.EDU.IMEP/DSD_EAG_UOE_NON_FIN_STUD@DF_UOE_NF_RAW_AGE/1.0?references=all",structure_file)
 end
 
-parse_oecd_dataset(data_file,structure_file)
+(data = parse_oecd_dataset(data_file,structure_file), source = "OECD:DSD_EAG_UOE_NON_FIN_STUD@DF_UOE_NF_RAW_AGE")

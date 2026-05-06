@@ -1,10 +1,6 @@
 Revenue due to taxation can be split up in a number of factors. There is money being taken from corporations, there is VAT, import taxes, income tax,.... The following plot should give an idea on where that revenue is coming from.
 
-![](../assets/tax_breakdown_belgium.png) 
-
-This can be compared to the average breakdown of a European country.
-
-![](../assets/tax_breakdown_average.png)
+![](../assets/tax_breakdown.png) 
 
 We see that in Belgium, the fraction of revenue coming from income taxation is 5% higher, while less revenue is coming from the taxation of goods and services. The difference is not - as I have sometimes read online - in our social security.
 

@@ -53,6 +53,6 @@ let
     ref_areas = full_df.REF_AREA[sp]
     palette = Plots.palette(:tab10);
     colors = [a == TARGET_NAME ? palette[2] : palette[1] for a in ref_areas]
-    bar(ref_areas, eff[sp], legend=false, color=colors, yaxis="Efficiency healthcare funding", xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm)
+    bar(ref_areas, eff[sp], legend=false, color=colors, title="Healthcare funding efficiency" * get_source("hospital_beds", "healthy_lifeyears", "government_spending_by_function", "gdp"), yaxis="Efficiency healthcare funding", xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm,titlefont=font(10,"Computer Modern"),top_margin=10Plots.mm)
     savefig(joinpath(FIGURE_DIR,"healthcare_efficiency.png"))
 end

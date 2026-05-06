@@ -11,4 +11,4 @@ if !isfile(data_file)
 end
 
 xf = XLSX.readxlsx(data_file)
-DataFrame(XLSX.gettable(xf["Gepensioneerden"]))
+(data = DataFrame(XLSX.gettable(xf["Gepensioneerden"])), source = "pensionstat.be:pilar_1")

@@ -66,5 +66,5 @@ let
         CSV.write(belgian_postal_names,   DataFrame(data))
     end
 
-    (joinpath(belgian_outline_shapefiles,"outline"),joinpath(belgian_postal_shapefiles,"postal"), DataFrame(CSV.File(belgian_postal_names,stringtype=String)))
+    (data = (joinpath(belgian_outline_shapefiles,"outline"),joinpath(belgian_postal_shapefiles,"postal"), DataFrame(CSV.File(belgian_postal_names,stringtype=String))), source = "Stanford/Bpost")
 end

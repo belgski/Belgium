@@ -19,6 +19,6 @@ let
     colors = [a == TARGET_NAME ? palette[2] : palette[1] for a in ref_areas]
 
     # it is not important to be able to read of every single quized country
-    bar(ref_areas, df.OBS_VALUE[sp], legend=false, yaxis="Life statistfaction (out of 10)",color=colors,  xrotation=35 ,xticks = (1:length(ref_areas),ref_areas),bottommargin=10mm,title = "Twenty-five happiest countries in the world")
+    bar(ref_areas, df.OBS_VALUE[sp], legend=false, yaxis="Life statistfaction (out of 10)",color=colors,  xrotation=35 ,xticks = (1:length(ref_areas),ref_areas),bottommargin=10mm,title = "Twenty-five happiest countries in the world" * get_source("well_being"),titlefont=font(10,"Computer Modern"))
     savefig(joinpath(FIGURE_DIR,"life_statisfaction.png"))
 end

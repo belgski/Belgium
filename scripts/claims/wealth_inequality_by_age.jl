@@ -18,7 +18,7 @@ let
     subcats = breakdown_df.subcategory
     wealth = breakdown_df[!,TARGET_ISO]
 
-    bar(subcats,wealth,legend = false,yaxis = "Net wealth (thousand Euro)")
+    bar(subcats,wealth,legend = false,title="Net wealth by age" * get_source("household_wealth"),yaxis = "Net wealth (thousand Euro)",titlefont=font(10,"Computer Modern"))
     savefig(joinpath(FIGURE_DIR,"wealth_by_age.png"))
 
     # I want to know the average wealth of someone of working age (15-64) compared to someone older

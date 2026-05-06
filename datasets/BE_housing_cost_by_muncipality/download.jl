@@ -16,4 +16,4 @@ if !isfile(data_file)
 end
 
 
-DataFrame(CSV.File(data_file,stringtype=String))
+(data = DataFrame(CSV.File(data_file,stringtype=String)), source = "Statbel:vastgoed_2010_9999")

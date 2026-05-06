@@ -8,4 +8,4 @@ if !isfile(data_file)
     CSV.write(data_file,  DataFrame(pyconvert(Any,data)))
 end
 
-rename(DataFrame(CSV.File(data_file,stringtype=String)),"geo\\TIME_PERIOD"=>"geo")
+(data = rename(DataFrame(CSV.File(data_file,stringtype=String)),"geo\\TIME_PERIOD"=>"geo"), source = "EUROSTAT:HLTH_SILC_28")

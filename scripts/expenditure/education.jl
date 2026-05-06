@@ -80,7 +80,7 @@ let
         ref_areas = grouped.REF_AREA[sp]
         palette = Plots.palette(:tab10);
         colors = [a == TARGET_NAME ? palette[2] : palette[1] for a in ref_areas]
-        bar(ref_areas, ratios[sp], legend=false, yaxis="Actual/estimated budget",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm)
+        bar(ref_areas, ratios[sp], legend=false, title="Actual/estimated budget" * get_source("government_spending_by_function", "student_enrollment", "wage_taxation"), yaxis="Actual/estimated budget",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm,titlefont=font(10,"Computer Modern"))
         savefig(joinpath(FIGURE_DIR,"pre_primary_education.png"))
     end
     #--------------
@@ -108,7 +108,7 @@ let
         ref_areas = grouped.REF_AREA[sp]
         palette = Plots.palette(:tab10);
         colors = [a == TARGET_NAME ? palette[2] : palette[1] for a in ref_areas]
-        bar(ref_areas, ratios[sp], legend=false, yaxis="Actual/estimated budget",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm)
+        bar(ref_areas, ratios[sp], legend=false, title="Actual/estimated budget" * get_source("government_spending_by_function", "student_enrollment", "wage_taxation"), yaxis="Actual/estimated budget",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm,titlefont=font(10,"Computer Modern"))
         savefig(joinpath(FIGURE_DIR,"secondary_education.png"))
 
     end
@@ -164,6 +164,6 @@ let
     ref_areas = joined.REF_AREA[mask][sp]
     palette = Plots.palette(:tab10);
     colors = [a == TARGET_NAME ? palette[2] : palette[1] for a in ref_areas]
-    bar(ref_areas, ratios[sp], legend=false, yaxis="Ratio teacher to average salary",title="Lower secondary school",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm)
+    bar(ref_areas, ratios[sp], legend=false, yaxis="Ratio teacher to average salary",title="Lower secondary school" * get_source("teacher_salaries", "wage_taxation"),color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm,titlefont=font(10,"Computer Modern"))
     savefig(joinpath(FIGURE_DIR,"teacher_salaries.png"))
 end

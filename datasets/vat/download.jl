@@ -39,5 +39,5 @@ let
     if !isfile(structure_file)
         Downloads.download("https://raw.githubusercontent.com/datasets/harmonized-system/refs/heads/main/data/harmonized-system.csv",structure_file)
     end
-    DataFrame(CSV.File(data_file; types = Dict(:CN => String), missingstring=nothing)), DataFrame(CSV.File(structure_file; types = Dict(:hscode => String)))
+    (data = (DataFrame(CSV.File(data_file; types = Dict(:CN => String), missingstring=nothing)), DataFrame(CSV.File(structure_file; types = Dict(:hscode => String)))), source = "TEDB")
 end

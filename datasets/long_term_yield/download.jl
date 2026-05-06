@@ -11,4 +11,4 @@ if !isfile(structure_file)
 end
 
 
-parse_oecd_dataset(data_file,structure_file)
+(data = parse_oecd_dataset(data_file,structure_file), source = "OECD:DSD_STES@DF_FINMARK")

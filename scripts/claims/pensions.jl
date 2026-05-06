@@ -8,7 +8,7 @@ let
     end
 
     years = [parse(Int,x) for x in names(df)[5:end]]
-    pl = plot()
+    pl = plot(title="Old age dependency forecast" * get_source("old_age_dependency_forecast"),titlefont=font(10,"Computer Modern"))
 
     for (scenario,scenario_code) in [("Low migration", "LMIGR"),("Baseline", "BSL"),("High migration","HMIGR")]
         df_scenario = @from i in df begin
@@ -40,6 +40,6 @@ let
     ref_areas = df_forecast.REF_AREA[sp]
     palette = Plots.palette(:tab10);
     colors = [a == TARGET_NAME ? palette[2] : palette[1] for a in ref_areas]
-    bar(ref_areas, ratios[sp], legend=false, tile="Dependency factor increase by 2060",color=colors, yaxis="Dependency then / dependency now", xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm)
+    bar(ref_areas, ratios[sp], legend=false, title="Dependency factor increase by 2060" * get_source("old_age_dependency_forecast"),color=colors, yaxis="Dependency then / dependency now", xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm,titlefont=font(10,"Computer Modern"))
     savefig(joinpath(FIGURE_DIR,"future_pension_costs.png"))
 end

@@ -16,7 +16,7 @@ let
     ref_areas = df.REF_AREA[sp]
     palette = Plots.palette(:tab10);
     colors = [a == TARGET_NAME ? palette[2] : palette[1] for a in ref_areas]
-    bar(ref_areas, df.OBS_VALUE[sp], legend=false, yaxis="Price to income ratio",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm)
+    bar(ref_areas, df.OBS_VALUE[sp], legend=false, title="Price to income ratio" * get_source("house_price_indicators"), yaxis="Price to income ratio",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm,titlefont=font(10,"Computer Modern"))
     savefig(joinpath(FIGURE_DIR,"housing_affordability.png"))
 
 
@@ -33,7 +33,7 @@ let
     ref_area_labels = [EUROPEAN_AREA_ISO_NAME[c] for c in ref_areas]
     palette = Plots.palette(:tab10);
     colors = [a == TARGET_ISO ? palette[2] : palette[1] for a in ref_areas]
-    bar(ref_area_labels, vals[sp], legend=false, yaxis="Overburden rate",title="Overburden rate in cities", color=colors,  xrotation=35, xticks = (1:length(ref_area_labels),ref_area_labels),bottommargin=5mm)
+    bar(ref_area_labels, vals[sp], legend=false, yaxis="Overburden rate",title="Overburden rate in cities" * get_source("housing_overburden_rate"), color=colors,  xrotation=35, xticks = (1:length(ref_area_labels),ref_area_labels),bottommargin=5mm,titlefont=font(10,"Computer Modern"))
     savefig(joinpath(FIGURE_DIR,"city_housing_overburden_rate.png"))
 
     burden = datasets["housing_overburden_rate"]
@@ -49,6 +49,6 @@ let
     ref_area_labels = [EUROPEAN_AREA_ISO_NAME[c] for c in ref_areas]
     palette = Plots.palette(:tab10);
     colors = [a == TARGET_ISO ? palette[2] : palette[1] for a in ref_areas]
-    bar(ref_area_labels, vals[sp], legend=false, yaxis="Overburden rate",title="Overburden rate in towns and suburbs", color=colors,  xrotation=35, xticks = (1:length(ref_area_labels),ref_area_labels),bottommargin=5mm)
+    bar(ref_area_labels, vals[sp], legend=false, yaxis="Overburden rate",title="Overburden rate in towns and suburbs" * get_source("housing_overburden_rate"), color=colors,  xrotation=35, xticks = (1:length(ref_area_labels),ref_area_labels),bottommargin=5mm,titlefont=font(10,"Computer Modern"))
     savefig(joinpath(FIGURE_DIR,"town_housing_overburden_rate.png"))
 end

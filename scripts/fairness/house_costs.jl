@@ -53,7 +53,7 @@ let
         table = Shapefile.Table(outline);
         belgium_outline = first(Shapefile.shapes(table));
         belgium_crs = ArchGDAL.importEPSG(4326);
-        pl = plot(belgium_outline,color=:gray,xaxis=false,yaxis=false,grid=false,title = descr,titlefontsize=9);
+        pl = plot(belgium_outline,color=:gray,xaxis=false,yaxis=false,grid=false,title = descr * get_source("wage_taxation", "BE_housing_cost_by_muncipality", "BE_shapefiles"),titlefont=font(10,"Computer Modern"),top_margin=2Plots.mm)
 
         table = Shapefile.Table(postal);
         postcode_crs = ArchGDAL.importEPSG(31370);

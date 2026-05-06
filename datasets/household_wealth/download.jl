@@ -64,4 +64,4 @@ if !isfile(data_file_1) || !isfile(data_file_2)
     end
 end
 
-DataFrame(CSV.File(data_file_1,stringtype=String)),DataFrame(CSV.File(data_file_2,stringtype=String))
+(data = (DataFrame(CSV.File(data_file_1,stringtype=String)),DataFrame(CSV.File(data_file_2,stringtype=String))), source = "ECB:HFCS_2021")

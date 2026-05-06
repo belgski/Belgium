@@ -48,7 +48,7 @@ let
     ref_areas = joined.REF_AREA[sp]
     palette = Plots.palette(:tab10);
     colors = [a == TARGET_NAME ? palette[2] : palette[1] for a in ref_areas]
-    bar(ref_areas, ratios[sp], legend=false, yaxis="Ratio",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm)
+    bar(ref_areas, ratios[sp], legend=false, title="Ratio" * get_source("government_spending_by_function", "wage_taxation", "population"), yaxis="Ratio",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm,titlefont=font(10,"Computer Modern"))
 
     savefig(joinpath(FIGURE_DIR,"gov_budget.png"))
 
@@ -93,7 +93,7 @@ let
 
     df_totalrev[!,"OBS_VALUE"] .*=10.0 .^(-3)
 
-    bar(["Projected savings","Deficit"], [projected_savings/10^9,gov_spending_df.OBS_VALUE[1]-df_totalrev.OBS_VALUE[1]],legend = false,yaxis = "Billion Euro")
+    bar(["Projected savings","Deficit"], [projected_savings/10^9,gov_spending_df.OBS_VALUE[1]-df_totalrev.OBS_VALUE[1]],legend = false,title="Government savings" * get_source("government_spending_by_function", "total_government_revenue", "wage_taxation", "population"),yaxis = "Billion Euro",titlefont=font(10,"Computer Modern"),top_margin=10Plots.mm)
     savefig(joinpath(FIGURE_DIR,"government_savings.png"))
 end
 
@@ -133,6 +133,6 @@ let
     ref_areas = df.REF_AREA[sp]
     palette = Plots.palette(:tab10);
     colors = [a == TARGET_NAME ? palette[2] : palette[1] for a in ref_areas]
-    bar(ref_areas, df.Salary[sp], legend=false, color=colors, yaxis="Parliament salary over average wage", xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm)
+    bar(ref_areas, df.Salary[sp], legend=false, color=colors, title="Parliament salary over average wage" * get_source("wage_taxation", "world_leader_salaries"), yaxis="Parliament salary over average wage", xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm,titlefont=font(10,"Computer Modern"))
     savefig(joinpath(FIGURE_DIR,"parliament_salary.png"))
 end

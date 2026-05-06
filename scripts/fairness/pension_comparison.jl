@@ -68,7 +68,7 @@ let
 
     palette = Plots.palette(:tab10);
     colors = [palette[1] for a in labels]
-    p = bar(labels, p1_vals+p2_vals+gap_vals, legend=:bottomright, color=:red, yaxis="Estimated Net Pension", xrotation=35, xticks = (0.5:2.5,labels),bottommargin=5mm, label="Deficit")
+    p = bar(labels, p1_vals+p2_vals+gap_vals, legend=:bottomright, color=:red, title="Estimated Net Pension" * get_source("BE_pensionstat_pilar_1", "BE_pensionstat_pilar_2_wn", "BE_pensionstat_pilar_2_zs"), yaxis="Estimated Net Pension", xrotation=35, xticks = (0.5:2.5,labels),bottommargin=5mm, label="Deficit",titlefont=font(10,"Computer Modern"),top_margin=15Plots.mm)
     bar!(p,labels,p1_vals+p2_vals, label="Pillar 2", color=palette[2])
     bar!(p,labels,p1_vals,label="Pillar 1", color=palette[1])
 

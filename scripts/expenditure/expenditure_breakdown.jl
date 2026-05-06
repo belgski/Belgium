@@ -1,3 +1,5 @@
+
+
 let
     df = datasets["government_spending_by_function"]
 
@@ -30,53 +32,21 @@ let
         sp = reverse(sortperm(pie_values))
         lvl_1_names = lvl_1_names[sp]
         lvl_1_shortened_names = [get(shortened,x,x) for x in lvl_1_names]
-        pie_values = pie_values[sp]
-
-        tot = sum(pie_values)
-
-        percentages = [sprintf1("%0.1f",x)*"%" for x in pie_values./tot*100]
-        θ = (cumsum(pie_values) - pie_values/2) .* 360/sum(pie_values)
-        scθ = sincosd.(θ)
-
-        using Plots.Measures
-        p = pie(lvl_1_shortened_names,pie_values,right_margin=60mm,legend=(1.1,0.8))
-        for (i,(s, sci)) in enumerate(zip(percentages, scθ))
-            annotate!(sci[2]*0.6, sci[1]*0.6, Plots.text(s, 9, :black))
-        end
-        p
-
-        savefig(joinpath(FIGURE_DIR,"spend_breakdown_belgium.png"))
+        belgium_pie = pie_values[sp]
 
         averages = map(lvl_1_names) do code
             mean((@from i in df_eu begin
                 @where i.EXPENDITURE.name == code
-
-                #@join j in df_eu on i.REF_AREA equals j.REF_AREA
-                #@where j.EXPENDITURE.name == parent_level
-
-
-                #@select i.OBS_VALUE/j.OBS_VALUE
                 @select i.OBS_VALUE
                 @collect
             end))
         end
 
-        pie_values = averages
-        tot = sum(pie_values)
-        percentages = [sprintf1("%0.1f",x)*"%" for x in pie_values./tot*100]
-
-
-        θ = (cumsum(pie_values) - pie_values/2) .* 360/sum(pie_values)
-        scθ = sincosd.(θ)
-
-        p = pie(lvl_1_shortened_names,pie_values,legend=false)#,right_margin=40mm,legend=(1,0.5))
-        for (i,(s, sci)) in enumerate(zip(percentages, scθ))
-            annotate!(sci[2]*0.6, sci[1]*0.6, Plots.text(s, 9, :black,halign = :center))
-        end
-        p
-
-
-        savefig(joinpath(FIGURE_DIR,"spend_breakdown_average.png"))
+        eu_pie = averages
+       
+        spendingplot(lvl_1_shortened_names,hcat(belgium_pie./sum(belgium_pie),eu_pie./sum(eu_pie)),["Belgium","Europe"], yaxis="Fraction of total", 
+        title="Total spending breakdown" * get_source("government_spending_by_function"),titlefont=font(10,"Computer Modern"), xrotation=35, bottommargin=10mm,c=reshape(Plots.palette(:tab10)[[2,1]],1,2))
+        savefig(joinpath(FIGURE_DIR,"total_spending.png"))
     end
 
     
@@ -92,53 +62,20 @@ let
         sp = reverse(sortperm(pie_values))
         lvl_1_names = lvl_1_names[sp]
         lvl_1_shortened_names = [get(shortened,x,x) for x in lvl_1_names]
-        pie_values = pie_values[sp]
-
-        tot = sum(pie_values)
-
-        percentages = [sprintf1("%0.1f",x)*"%" for x in pie_values./tot*100]
-        θ = (cumsum(pie_values) - pie_values/2) .* 360/sum(pie_values)
-        scθ = sincosd.(θ)
-
-        using Plots.Measures
-        p = pie(lvl_1_shortened_names,pie_values,right_margin=60mm,legend=(1.1,0.8))
-        for (i,(s, sci)) in enumerate(zip(percentages, scθ))
-            annotate!(sci[2]*0.6, sci[1]*0.6, Plots.text(s, 9, :black))
-        end
-        p
-
-        savefig(joinpath(FIGURE_DIR,"social_protection_belgium.png"))
+        belgium_pie = pie_values[sp]
 
         averages = map(lvl_1_names) do code
             mean((@from i in df_eu begin
                 @where i.EXPENDITURE.name == code
-
-                #@join j in df_eu on i.REF_AREA equals j.REF_AREA
-                #@where j.EXPENDITURE.name == parent_level
-
-
-                #@select i.OBS_VALUE/j.OBS_VALUE
                 @select i.OBS_VALUE
                 @collect
             end))
         end
 
-        pie_values = averages
-        tot = sum(pie_values)
-        percentages = [sprintf1("%0.1f",x)*"%" for x in pie_values./tot*100]
+        eu_pie = averages
 
-
-        θ = (cumsum(pie_values) - pie_values/2) .* 360/sum(pie_values)
-        scθ = sincosd.(θ)
-
-        p = pie(lvl_1_shortened_names,pie_values,legend=false)#,right_margin=40mm,legend=(1,0.5))
-        for (i,(s, sci)) in enumerate(zip(percentages, scθ))
-            annotate!(sci[2]*0.6, sci[1]*0.6, Plots.text(s, 9, :black,halign = :center))
-        end
-        p
-
-
-        savefig(joinpath(FIGURE_DIR,"social_protection_eu.png"))
+        spendingplot(lvl_1_shortened_names,hcat(belgium_pie./sum(belgium_pie),eu_pie./sum(eu_pie)),["Belgium","Europe"], yaxis="Fraction of total", title="Social protection spending breakdown" * get_source("government_spending_by_function"),titlefont=font(10,"Computer Modern"), xrotation=35, bottommargin=10mm,c=reshape(Plots.palette(:tab10)[[2,1]],1,2))
+        savefig(joinpath(FIGURE_DIR,"social_protection_spending.png"))
     end
 
 
@@ -156,22 +93,7 @@ let
         sp = reverse(sortperm(pie_values))
         lvl_1_names = lvl_1_names[sp]
         lvl_1_shortened_names = [get(shortened,x,x) for x in lvl_1_names]
-        pie_values = pie_values[sp]
-
-        tot = sum(pie_values)
-
-        percentages = [sprintf1("%0.1f",x)*"%" for x in pie_values./tot*100]
-        θ = (cumsum(pie_values) - pie_values/2) .* 360/sum(pie_values)
-        scθ = sincosd.(θ)
-
-        using Plots.Measures
-        p = pie(lvl_1_shortened_names,pie_values,right_margin=60mm,legend=(1.1,0.8))
-        for (i,(s, sci)) in enumerate(zip(percentages, scθ))
-            annotate!(sci[2]*0.6, sci[1]*0.6, Plots.text(s, 9, :black))
-        end
-        p
-
-        savefig(joinpath(FIGURE_DIR,"public_services_belgium.png"))
+        belgium_pie = pie_values[sp]
 
         averages = map(lvl_1_names) do code
             mean((@from i in df_eu begin
@@ -187,22 +109,12 @@ let
             end))
         end
 
-        pie_values = averages
-        tot = sum(pie_values)
-        percentages = [sprintf1("%0.1f",x)*"%" for x in pie_values./tot*100]
+        eu_pie = averages
+        
 
-
-        θ = (cumsum(pie_values) - pie_values/2) .* 360/sum(pie_values)
-        scθ = sincosd.(θ)
-
-        p = pie(lvl_1_shortened_names,pie_values,legend=false)#,right_margin=40mm,legend=(1,0.5))
-        for (i,(s, sci)) in enumerate(zip(percentages, scθ))
-            annotate!(sci[2]*0.6, sci[1]*0.6, Plots.text(s, 9, :black,halign = :center))
-        end
-        p
-
-
-        savefig(joinpath(FIGURE_DIR,"public_services_eu.png"))
+        spendingplot(lvl_1_shortened_names,hcat(belgium_pie./sum(belgium_pie),eu_pie./sum(eu_pie)),["Belgium","Europe"], yaxis="Fraction of total", 
+        title="Public services spending breakdown" * get_source("government_spending_by_function"),titlefont=font(10,"Computer Modern"), xrotation=35, bottommargin=10mm,c=reshape(Plots.palette(:tab10)[[2,1]],1,2))
+        savefig(joinpath(FIGURE_DIR,"public_services_spending.png"))
     end
 
     
@@ -222,53 +134,21 @@ let
         sp = reverse(sortperm(pie_values))
         lvl_1_names = lvl_1_names[sp]
         lvl_1_shortened_names = [get(shortened,x,x) for x in lvl_1_names]
-        pie_values = pie_values[sp]
-
-        tot = sum(pie_values)
-
-        percentages = [sprintf1("%0.1f",x)*"%" for x in pie_values./tot*100]
-        θ = (cumsum(pie_values) - pie_values/2) .* 360/sum(pie_values)
-        scθ = sincosd.(θ)
-
-        using Plots.Measures
-        p = pie(lvl_1_shortened_names,pie_values,right_margin=60mm,legend=(1.1,0.8))
-        for (i,(s, sci)) in enumerate(zip(percentages, scθ))
-            annotate!(sci[2]*0.6, sci[1]*0.6, Plots.text(s, 9, :black))
-        end
-        p
-
-        savefig(joinpath(FIGURE_DIR,"education_belgium.png"))
+        belgium_pie = pie_values[sp]
 
         averages = map(lvl_1_names) do code
             mean((@from i in df_eu begin
                 @where i.EXPENDITURE.name == code
-
-                #@join j in df_eu on i.REF_AREA equals j.REF_AREA
-                #@where j.EXPENDITURE.name == parent_level
-
-
-                #@select i.OBS_VALUE/j.OBS_VALUE
                 @select i.OBS_VALUE
                 @collect
             end))
         end
 
-        pie_values = averages
-        tot = sum(pie_values)
-        percentages = [sprintf1("%0.1f",x)*"%" for x in pie_values./tot*100]
+        eu_pie = averages
 
-
-        θ = (cumsum(pie_values) - pie_values/2) .* 360/sum(pie_values)
-        scθ = sincosd.(θ)
-
-        p = pie(lvl_1_shortened_names,pie_values,legend=false)#,right_margin=40mm,legend=(1,0.5))
-        for (i,(s, sci)) in enumerate(zip(percentages, scθ))
-            annotate!(sci[2]*0.6, sci[1]*0.6, Plots.text(s, 9, :black,halign = :center))
-        end
-        p
-
-
-        savefig(joinpath(FIGURE_DIR,"education_eu.png"))
+        spendingplot(lvl_1_shortened_names,hcat(belgium_pie./sum(belgium_pie),eu_pie./sum(eu_pie)),["Belgium","Europe"], yaxis="Fraction of total", 
+        title="Education spending breakdown" * get_source("government_spending_by_function"),titlefont=font(10,"Computer Modern"), xrotation=35, bottommargin=10mm,c=reshape(Plots.palette(:tab10)[[2,1]],1,2))
+        savefig(joinpath(FIGURE_DIR,"education_spending.png"))
     end
 
 end

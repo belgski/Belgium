@@ -13,4 +13,4 @@ if !isfile(data_file)
 end
 
 
-DataFrame(CSV.File(data_file,stringtype=String))
+(data = DataFrame(CSV.File(data_file,stringtype=String)), source = "SFP (FPD-SDPSP)")

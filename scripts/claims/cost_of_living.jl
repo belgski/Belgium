@@ -18,6 +18,6 @@ let
     ref_areas = df.geo[sp]
     palette = Plots.palette(:tab10);
     colors = [a == TARGET_NAME ? palette[2] : palette[1] for a in ref_areas]
-    bar(ref_areas, df.rate[sp], legend=false, tile="Per capita expenditure on goods and services",color=colors, yaxis="Purchasing Power Parity converted", xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm)
+    bar(ref_areas, df.rate[sp], legend=false, title="Per capita expenditure on goods and services" * get_source("price_indices"),color=colors, yaxis="Purchasing Power Parity converted", xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm,titlefont=font(10,"Computer Modern"))
     savefig(joinpath(FIGURE_DIR,"cost_of_living.png"))
 end

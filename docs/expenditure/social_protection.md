@@ -1,10 +1,7 @@
 The typical country spends the majority of its social protection budget taking care of the elderly, and belgium is no exception:
 
-![](../assets/social_protection_belgium.png)
+![](../assets/social_protection_spending.png)
 
-While the European average is allocated in the following way:
-
-![](../assets/social_protection_eu.png)
 
 
 ## Old age

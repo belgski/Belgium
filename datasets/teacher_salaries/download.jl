@@ -10,4 +10,4 @@ if !isfile(structure_file)
     Downloads.download("https://sdmx.oecd.org/public/rest/dataflow/OECD.EDU.IMEP/DSD_EAG_SAL_TREND@DF_TCH_STA/?references=all",structure_file)
 end
 
-parse_oecd_dataset(data_file,structure_file)
+(data = parse_oecd_dataset(data_file,structure_file), source = "OECD:DSD_EAG_SAL_TREND@DF_TCH_STA")

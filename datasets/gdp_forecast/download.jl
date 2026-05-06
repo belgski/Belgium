@@ -10,4 +10,4 @@ if !isfile(structure_file)
     Downloads.download("https://sdmx.oecd.org/archive/rest/dataflow/OECD/DF_EO114_LTB/?references=all",structure_file)
 end
 
-parse_oecd_dataset(data_file,structure_file)
+(data = parse_oecd_dataset(data_file,structure_file), source = "OECD:DF_EO114_LTB")

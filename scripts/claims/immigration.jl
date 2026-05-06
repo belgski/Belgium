@@ -15,7 +15,7 @@ let
     ref_areas = df.geo[sp]
     palette = Plots.palette(:tab10);
     colors = [a == TARGET_NAME ? palette[2] : palette[1] for a in ref_areas]
-    bar(ref_areas, df.rate[sp], legend=false, yaxis="Participation rate",color=colors,  xrotation=35 ,xticks = (1:length(ref_areas),ref_areas),bottommargin=10mm)
+    bar(ref_areas, df.rate[sp], legend=false, title="Participation rate" * get_source("immigrant_labour_market_outcome"), yaxis="Participation rate",color=colors,  xrotation=35 ,xticks = (1:length(ref_areas),ref_areas),bottommargin=10mm,titlefont=font(10,"Computer Modern"))
     savefig(joinpath(FIGURE_DIR,"immigrant_participation_rate.png"))
 
     df = datasets["immigration_size_statistics"]
@@ -33,6 +33,6 @@ let
     ref_areas = df.geo[sp]
     palette = Plots.palette(:tab10);
     colors = [a == TARGET_NAME ? palette[2] : palette[1] for a in ref_areas]
-    bar(ref_areas, df.rate[sp], legend=false, yaxis="Immigrant proportion (%)",color=colors,  xrotation=35 ,xticks = (1:length(ref_areas),ref_areas),bottommargin=10mm)
+    bar(ref_areas, df.rate[sp], legend=false, title="Immigrant proportion (%)" * get_source("immigration_size_statistics"), yaxis="Immigrant proportion (%)",color=colors,  xrotation=35 ,xticks = (1:length(ref_areas),ref_areas),bottommargin=10mm,titlefont=font(10,"Computer Modern"))
     savefig(joinpath(FIGURE_DIR,"immigrant_proportion.png"))
 end

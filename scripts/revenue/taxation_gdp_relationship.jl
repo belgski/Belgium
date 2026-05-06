@@ -34,11 +34,11 @@ let
     ref_areas = joined.REF_AREA[sp]
     palette = Plots.palette(:tab10);
     colors = [a == TARGET_NAME ? palette[2] : palette[1] for a in ref_areas]
-    bar(ref_areas, taxation_per_gdp[sp], legend=false, yaxis="Taxation over GDP",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm)
+    bar(ref_areas, taxation_per_gdp[sp], legend=false, yaxis="Taxation over GDP",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm, title="Taxation over GDP" * get_source("government_taxation_revenue", "gdp"),titlefont=font(10,"Computer Modern"))
 
     savefig(joinpath(FIGURE_DIR,"taxation_per_gdp.png"))
 
-    plot(joined.TOTALTAX,joined.GDP,seriestype=:scatter,xscale=:log10,yscale=:log10,legend=false,xaxis="Tax revenue (million USD)", yaxis="GDP (million USD)")
+    plot(joined.TOTALTAX,joined.GDP,seriestype=:scatter,xscale=:log10,yscale=:log10,legend=false,xaxis="Tax revenue (million USD)", yaxis="GDP (million USD)", title="Taxation vs GDP relationship" * get_source("government_taxation_revenue", "gdp"),titlefont=font(10,"Computer Modern"))
     plot!(belgium_taxation,belgium_gdp,seriestype=:scatter)
 
     using Statistics

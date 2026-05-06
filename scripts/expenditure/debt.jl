@@ -12,7 +12,7 @@ let
     ref_areas = df_debt.REF_AREA[sp]
     palette = Plots.palette(:tab10);
     colors = [a == TARGET_NAME ? palette[2] : palette[1] for a in ref_areas]
-    bar(ref_areas, df_debt.OBS_VALUE[sp], legend=false, yaxis="Debt/GDP",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm)
+    bar(ref_areas, df_debt.OBS_VALUE[sp], legend=false, title="Debt/GDP" * get_source("debt"), yaxis="Debt/GDP",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm,titlefont=font(10,"Computer Modern"))
     savefig(joinpath(FIGURE_DIR,"debt_per_gdp.png"))
 
 
@@ -39,7 +39,7 @@ let
     ref_areas = df.REF_AREA[sp]
     palette = Plots.palette(:tab10);
     colors = [a == TARGET_NAME ? palette[2] : palette[1] for a in ref_areas]
-    bar(ref_areas, ratios[sp], legend=false, yaxis="Debt spending/Total %",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm)
+    bar(ref_areas, ratios[sp], legend=false, title="Debt spending/Total %" * get_source("government_spending_by_function"), yaxis="Debt spending/Total %",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm,titlefont=font(10,"Computer Modern"))
     savefig(joinpath(FIGURE_DIR,"debt_spending.png"))
 
     df = datasets["government_spending_by_function"]
@@ -62,11 +62,13 @@ let
         Int.(df.TIME_PERIOD[sp]),
         df.RATIO[sp].*100,
         legend=false,
+        title="Debt spending over time" * get_source("government_spending_by_function"),
         yaxis="Debt spending/Total %",
         xaxis="Year",
         bottommargin=5mm,
         marker=:circle,
         markersize=5
+        ,titlefont=font(10,"Computer Modern")
     )
     savefig(joinpath(FIGURE_DIR,"debt_spending_time.png"))
 
@@ -83,7 +85,7 @@ let
     ref_areas = df.REF_AREA[sp]
     palette = Plots.palette(:tab10);
     colors = [a == TARGET_NAME ? palette[2] : palette[1] for a in ref_areas]
-    bar(ref_areas, ratios[sp], legend=false, yaxis="Long term yield",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm)
+    bar(ref_areas, ratios[sp], legend=false, title="Long term yield" * get_source("long_term_yield"), yaxis="Long term yield",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm,titlefont=font(10,"Computer Modern"))
     savefig(joinpath(FIGURE_DIR,"long_term_yield.png"))
     
 end

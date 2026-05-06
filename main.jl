@@ -1,4 +1,5 @@
 using HTTP, CSV ,DataFrames, XML, Plots, Downloads, PythonCall, Countries, Formatting, PrettyTables, XLSX, ZipFile, CodecXz, RData, HTMLTables
+using StatsPlots, CategoricalArrays # ordered grouped bar plots shouldn't be so difficult
 using Query, GLM, Statistics, DataEnvelopmentAnalysis
 using GeoInterface,Shapefile,ArchGDAL
 using Plots.Measures
@@ -38,13 +39,23 @@ end
 const EUROPEAN_AREA_ISO3S = collect(keys(EUROPEAN_AREA_ISO3_NAME))
 
 const datasets = Dict{String,Any}()
+const dataset_sources = Dict{String,String}()
+
 for f in readdir(joinpath(ROOT_DIR,"datasets"))
     f_full = joinpath(ROOT_DIR,"datasets",f)
     isdir(f_full) || continue
     
-    datasets[f] = let
+    res = let
         include(joinpath(f_full,"download.jl"))
     end
+    datasets[f] = res.data
+    dataset_sources[f] = res.source
+end
+
+function get_source(names...)
+    sources = filter(!=("Unknown"), unique([get(dataset_sources, n, "Unknown") for n in names]))
+    isempty(sources) && return ""
+    return "\nSource: " * join(sources, ",\n")
 end
 
 open(joinpath(FIGURE_DIR,"compared_countries.txt"),"w") do f

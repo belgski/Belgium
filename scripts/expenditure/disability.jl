@@ -18,7 +18,7 @@ let
     ref_area_labels = [EUROPEAN_AREA_ISO_NAME[c] for c in ref_areas]
     palette = Plots.palette(:tab10);
     colors = [a == TARGET_NAME ? palette[2] : palette[1] for a in ref_area_labels]
-    bar(ref_area_labels, ratios[sp], legend=false, yaxis="Disability rate",color=colors,  xrotation=35, xticks = (1:length(ref_area_labels),ref_area_labels),bottommargin=5mm)
+    bar(ref_area_labels, ratios[sp], legend=false, title="Disability rate" * get_source("disability_rate"), yaxis="Disability rate",color=colors,  xrotation=35, xticks = (1:length(ref_area_labels),ref_area_labels),bottommargin=5mm,titlefont=font(10,"Computer Modern"))
     savefig(joinpath(FIGURE_DIR,"disability_rate.png"))
 
 
@@ -38,7 +38,7 @@ let
         @collect DataFrame
     end
 
-    histogram(unempl_rate_df.UNEMPL_RATE,xaxis="Inactivity rate",yaxis="number of countries",legend=false)
+    histogram(unempl_rate_df.UNEMPL_RATE,xaxis="Inactivity rate",yaxis="number of countries",title="Inactivity rate" * get_source("infra_annual_labour"),legend=false,titlefont=font(10,"Computer Modern"))
     vline!(unempl_rate_df.UNEMPL_RATE[unempl_rate_df.REF_AREA .== TARGET_NAME])
     savefig(joinpath(FIGURE_DIR,"inactivity_rate.png"))
 
@@ -106,6 +106,6 @@ let
     ref_areas = joined.REF_AREA[sp]
     palette = Plots.palette(:tab10);
     colors = [a == TARGET_NAME ? palette[2] : palette[1] for a in ref_areas]
-    bar(ref_areas, ratios[sp], legend=false, yaxis="Actual/estimated budget",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm)
+    bar(ref_areas, ratios[sp], legend=false, title="Actual/estimated budget" * get_source("government_spending_by_function", "infra_annual_labour", "wage_taxation", "population"), yaxis="Actual/estimated budget",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm,titlefont=font(10,"Computer Modern"))
     savefig(joinpath(FIGURE_DIR,"sick_disabled_budget_ratio.png"))
 end

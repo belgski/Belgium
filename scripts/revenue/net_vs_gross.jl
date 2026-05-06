@@ -28,7 +28,7 @@ let
 
     joined = innerjoin(df_gross_labour,df_net_income,on = "REF_AREA",makeunique=true)
 
-    histogram(joined.NET_INCOME ./joined.GROSS_LABOUR .*100 ,xaxis="(net income)/(gross labour cost) %",yaxis="# of countries",bins = 40:2:70,alpha=0.2,label="average wage")
+    histogram(joined.NET_INCOME ./joined.GROSS_LABOUR .*100 ,xaxis="(net income)/(gross labour cost) %",yaxis="# of countries",bins = 40:2:70,alpha=0.2,label="average wage", title="Net income vs Gross labour cost" * get_source("wage_taxation"),titlefont=font(10,"Computer Modern"))
     belgium_row = joined[joined[!,"REF_AREA"] .== TARGET_NAME,:]
 
     vline!([belgium_row[1,"NET_INCOME"]/belgium_row[1,"GROSS_LABOUR"] * 100],color=:blue,label=false)

@@ -10,4 +10,4 @@ if !isfile(structure_file)
     Downloads.download("https://sdmx.oecd.org/public/rest/dataflow/OECD.ECO.MPD/DSD_AN_HOUSE_PRICES@DF_HOUSE_PRICES/1.0?references=all",structure_file)
 end
 
-parse_oecd_dataset(data_file,structure_file)
+(data = parse_oecd_dataset(data_file,structure_file), source = "OECD:DSD_AN_HOUSE_PRICES@DF_HOUSE_PRICES")

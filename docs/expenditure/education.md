@@ -1,12 +1,8 @@
-Our education expenditure:
+Our education expenditure is proportionally in line with the rest of the European union:
 
-![](../assets/education_belgium.png)
+![](../assets/education_spending.png)
 
-is proportionally in line with the rest of the European union:
-
-![](../assets/education_eu.png)
-
-We spend significantly more on "Other education".
+Though we psend significantly more on "other education".
 
 ## Spending by type of education 
 

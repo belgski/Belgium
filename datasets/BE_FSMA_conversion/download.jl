@@ -1,2 +1,2 @@
 @assert TIME_PERIOD in 2022:2025
-379.4184
+(data = 379.4184, source = "FSMA")

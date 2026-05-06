@@ -44,7 +44,7 @@ let
         @collect DataFrame
     end
 
-    plot(grouped.CARE_BUDGET,(grouped.NUM_OLD .* grouped.PAY), seriestype=:scatter,xscale=:log10,yscale=:log10,label=false,xaxis="Care budget (national currency)", yaxis = "# old people x average net wage")
+    plot(grouped.CARE_BUDGET,(grouped.NUM_OLD .* grouped.PAY), seriestype=:scatter,xscale=:log10,yscale=:log10,label=false,xaxis="Care budget (national currency)", yaxis = "# old people x average net wage", title="Care budget vs estimated demand" * get_source("wage_taxation", "population", "government_spending_by_function"),titlefont=font(10,"Computer Modern"))
     savefig(joinpath(FIGURE_DIR,"ratio_test_old_age.png"))
 
     df = DataFrame("X" => (grouped.NUM_OLD .* grouped.PAY), "Y" => grouped.CARE_BUDGET)
@@ -59,6 +59,6 @@ let
     ref_areas = grouped.REF_AREA[sp]
     palette = Plots.palette(:tab10);
     colors = [a == TARGET_NAME ? palette[2] : palette[1] for a in ref_areas]
-    bar(ref_areas, ratios[sp], legend=false, yaxis="Actual/estimated budget",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm)
+    bar(ref_areas, ratios[sp], legend=false, title="Actual/estimated budget" * get_source("wage_taxation", "population", "government_spending_by_function"), yaxis="Actual/estimated budget",color=colors,  xrotation=35, xticks = (1:length(ref_areas),ref_areas),bottommargin=5mm,titlefont=font(10,"Computer Modern"))
     savefig(joinpath(FIGURE_DIR,"old_age.png"))
 end

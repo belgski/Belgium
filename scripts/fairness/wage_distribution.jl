@@ -11,7 +11,7 @@ let
         @collect DataFrame
     end
     sp = sortperm([parse(Int,i[2:end]) for i in belgian_distribution.quantile])
-    bar(belgian_distribution.quantile[sp],belgian_distribution.OBS_VALUE[sp],alpha=0.3, label = "Belgium")
+    bar(belgian_distribution.quantile[sp],belgian_distribution.OBS_VALUE[sp],alpha=0.3, label = "Belgium", title="Decile wage distribution" * get_source("income_distribution_quantiles"),titlefont=font(10,"Computer Modern"))
 
 
     belgian_distribution = @from i in df begin

@@ -123,3 +123,21 @@ function parse_oecd_dataset(csv_file, structure_file)
 end
 
 
+function Base.unique(ctg::CategoricalArray) 
+    l = levels(ctg)
+    newctg = CategoricalArray(l)
+    levels!(newctg, l)
+end
+
+function spendingplot(names, data_matrix,  group,args...;kwargs...)
+    @assert size(data_matrix)[2] % length(group) == 0 "The number of rows in the data matrix must be a multiple of the number of data categories."
+    @assert size(data_matrix)[1] % length(names) == 0 "The number of column in the data matrix must be a multiple of the number of groups of bars."
+
+    plot_names = repeat(names, outer = size(data_matrix)[2])
+    plot_groups = repeat(group, inner = size(data_matrix)[1])
+
+    plot_names = categorical(plot_names; levels = names)
+    plot_groups = categorical(plot_groups; levels = group)
+
+    StatsPlots.groupedbar(plot_names, data_matrix, group=plot_groups, args...; kwargs...)
+end
