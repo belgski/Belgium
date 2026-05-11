@@ -1,0 +1,3 @@
+This is an iffy dataset. I want to get a curve for the employer cost to employee net wage, at different total comp points. This data is usually difficult to get, requiring your to dig in to every countries tax system. Some global payroll providors provide an API, but they aim at companies - not at weirdos doing an analysis of the belgian tax system.
+
+To get some data, I went with [this](https://console.apify.com/actors/IHoMs43lk7LfSQQGE/information/latest/readme) apify endpoint. It is possibly inaccurate but it's dirt cheap, and looks reasonably correct. To redownload this dataset, you will have to set the APIFY_TOKEN environment variable to a valid token.

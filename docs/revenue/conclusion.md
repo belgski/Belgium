@@ -2,10 +2,10 @@ It is fair to say that belgium does indeed have a rather high taxation revenue, 
 
 It's notable that Belgium has decided to increase labour costs, while having a lower VAT. An everyday worker will very much feel the effects of increased labour costs by looking at the difference between his netto and brutto salary. Simultaneously we seem to be taxing companies (especially in the petrochemistry industry) to a smaller extent, which has a far more hidden effect. It should boost our economy and provide more economic growth (and therefore more jobs).
 
-A lower salary is mostly annoying when trying to relocate, buying imported goods or when going on vacation. For everyday expenses, the metric to look at is the cost of consumer goods. If these are cheap, then a lower salary is less of a problem. Eurostat provides a consumer goods and services table, estimating in relative terms how expensive everyday consumer goods and services are. 
+A lower salary is mostly annoying when trying to relocate, buying imported goods or when going on vacation. For everyday expenses, the metric to look at is the cost of consumer goods. If these are cheap, then a lower salary is less of a problem. Eurostat provides a consumer goods and services table, estimating in relative terms how expensive everyday consumer goods and services are (Price Level Index), alongside how much households actually consume (Volume Index).
 
 ![](../assets/cost_of_living.png)
 
-We find Belgium to be expensive. When people talk about how our purchasing power is protected despite the high taxation, I don't know what metric they are looking at.
+We find Belgium to be expensive, with prices roughly 20% above the EU average. Though even after accounding for the high prices and taxation, Belgians still consume about 13% more than the average European. This suggest that our purchasing power is indeed largely protected, allowing us a standard of living that is among the highest in Europe.
 
 Taxation on its own is not necessarily a bad thing - in the next section we will look at where that money is going, and whether that is in line with other countries.

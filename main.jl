@@ -1,4 +1,4 @@
-using HTTP, CSV ,DataFrames, XML, Plots, Downloads, PythonCall, Countries, Formatting, PrettyTables, XLSX, ZipFile, CodecXz, RData, HTMLTables
+using HTTP, CSV ,DataFrames, XML, Plots, Downloads, PythonCall, Countries, Formatting, PrettyTables, XLSX, ZipFile, CodecXz, RData, HTMLTables, JSON3
 using StatsPlots, CategoricalArrays # ordered grouped bar plots shouldn't be so difficult
 using Query, GLM, Statistics, DataEnvelopmentAnalysis
 using GeoInterface,Shapefile,ArchGDAL
@@ -70,6 +70,7 @@ include("scripts/revenue/tax_breakdown.jl")
 include("scripts/revenue/taxation_gdp_relationship.jl")
 include("scripts/revenue/net_vs_gross.jl")
 
+include("scripts/expenditure/gbard_breakdown.jl")
 include("scripts/expenditure/debt.jl")
 include("scripts/expenditure/disability.jl")
 include("scripts/expenditure/education.jl")
@@ -90,3 +91,4 @@ include("scripts/claims/immigration.jl")
 include("scripts/claims/pensions.jl")
 include("scripts/claims/wealth_inequality_by_age.jl")
 include("scripts/claims/cost_of_living.jl")
+

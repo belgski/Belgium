@@ -39,4 +39,8 @@ We see that Belgium, despite the quite impressive amount of debt, is still seen 
 
 ## Basic research
 
-!!!
+We find a significant higher spending on "basic research", which covers a whole host of r&d expenditures, primarily university funding. In COFOG, the r&d budget is scattered in many different categories. It's far more interesting to look at something like GBARD, which breaks down the full r&d budget.
+
+![](../assets/gbard_breakdown.png)
+
+An enormous amount of spending on Industry, combined with spending significantly less on University research.

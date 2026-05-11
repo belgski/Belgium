@@ -1,9 +1,13 @@
 We have seen that Belgium has decided to lower the taxation on goods and services, while increasing taxation on income/revene. The effects are particularly clear when looking at the cost of labour. If an employer pays you X amount of money to do your work, how much does the government take away and how much eventually ends up in your bank account.
 
 
-If we take a look at a single person househould with an average or high (167% of average) wage, then we can compare his/her net income vs the labour cost that was paid. While it wouldn't be difficult to spot belgium, I have nevertheless marked it with a line.
+If we take a look at a single person househould with an average wage, then we can compare his/her net income vs the labour cost that was paid.
 
 ![](../assets/net_income_vs_gross_labour.png)
+
+The gap with the rest of europe is quite enormous, it gets even larger when looking at higher levels of income:
+
+![](../assets/net_vs_gross_employee_costs.png)
 
 ## A different vat policy
 

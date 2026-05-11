@@ -74,7 +74,7 @@ let
         eu_pie = averages[sp]
 
         spendingplot(tax_names_shortened,hcat(belgium_pie./sum(belgium_pie),eu_pie./sum(eu_pie)),["Belgium","Europe"], yaxis="Fraction of total", 
-        title="Tax breakdown" *  get_source("total_government_revenue", "government_taxation_revenue"),titlefont=font(10,"Computer Modern"), xrotation=35, bottommargin=10mm,c=reshape(Plots.palette(:tab10)[[2,1]],1,2),top_margin=10mm)
+        title="Tax breakdown" *  get_source("total_government_revenue", "government_taxation_revenue"),titlefont=font(10,"Computer Modern"), xrotation=35, bottommargin=10mm,c=reshape(Plots.palette(:tab10)[[2,1]],1,2),top_margin=10mm, left_margin=10mm)
         savefig(joinpath(FIGURE_DIR,"tax_breakdown.png"))
 
     end
